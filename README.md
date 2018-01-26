@@ -27,6 +27,14 @@ Opzio.ofNullable(apiResponse3).map(v -> v.result).map(v -> v.data).map(v -> v.fi
      .ifPresent(firstName -> System.out.println(firstName))
      .ifAbsent(() -> System.out.println("Error handling"));
 ```
+## Where-to-use
+* Android projects, with minSdkversion < 24 and/or android-gradle-plugin version < 3.
+  * Such projects can't use Java 8 features. But if using Retrolambda, can make use of <b>Opzio</b>.
+
+## Acknowledgements
+* Benjamin [http://winterbe.com/posts/2015/03/15/avoid-null-checks-in-java/]
+* Beildung [http://www.baeldung.com/java-optional]
+* Oracle Java Optional class
 
 ## Licence
 Licensed under the MIT license.
