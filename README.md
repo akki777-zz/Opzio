@@ -20,12 +20,19 @@ System.out.println(name); // prints "Opzio.empty"
 
 ### Chaining
 For hierarchy : `apiResponse -> result -> data -> firstName`,
+* Do simply (using `resolve` method),
 ```
-ApiResponse apiResponse = new ApiResponse();
+apiResponse.result.data.firstName = "Name";
+Opzio.resolve(() -> apiResponse.result.data.firstName)
+      .ifPresent(firstName -> System.out.println(firstName)) //prints "Name"
+      .ifAbsent(() -> System.out.println("Error handling"));
+```
+* Or use `map` method,
+```
 apiResponse.result.data = null;
-Opzio.ofNullable(apiResponse3).map(v -> v.result).map(v -> v.data).map(v -> v.firstName)
+Opzio.ofNullable(apiResponse).map(v -> v.result).map(v -> v.data).map(v -> v.firstName)
      .ifPresent(firstName -> System.out.println(firstName))
-     .ifAbsent(() -> System.out.println("Error handling"));
+     .ifAbsent(() -> System.out.println("Error handling")); // prints "Error handling"
 ```
 ## Where-to-use
 * Android projects, with minSdkversion < 24 and/or android-gradle-plugin version < 3.
