@@ -3,7 +3,7 @@ Java's Optional functionality with few modifications.
 
 ## Advantages
 * No `get()` method, so no chance of NullPointerException.
-* Added `ifAbsent()` method, which can be used in conjunction wuth `ifPresent()` for Error Handling.
+* Added `ifAbsent()` method, which can be used in conjunction with `ifPresent()` for Error Handling.
 
 ## How-to-use
 ### Basic usage
